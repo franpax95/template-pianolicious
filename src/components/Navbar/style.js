@@ -1,33 +1,82 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { colors, breakpoints } from 'styles/vars';
+import { colors, breakpoints, fonts } from 'styles/vars';
 
 export const StyledNavbar = styled.nav`
     margin: 0 auto;
-    height: 100px;
+    padding: 35px 5rem 0 5rem;
+    height: 150px;
+    width: fit-content;
 
     position: absolute;
+    left: 0;
+    right: 0;
 
     display: flex;
+    gap: 20px;
     justify-content: center;
     align-items: center;
 
     overflow: hidden;
+
+    @media only screen and (min-width: ${breakpoints.mobile}) {
+        gap: 30px;
+    }
+
+    @media only screen and (min-width: ${breakpoints.tablet}) {
+        gap: 40px;
+    }
+
+    @media only screen and (min-width: ${breakpoints.desktop}) {
+        gap: 50px;
+    }
 `;
 
 const LinkStyles = css`
-    margin: 0 20px;
-
     position: relative;
 
     color: ${colors.active.white};
 
-    font-size: 1.8rem;
+    font-size: 2rem;
 
     transition: color .4s, font-size .1s;
 
+    &::before {
+        content: ${props => props.description ? `"${props.description}"` : ""};
+        user-select: none;
+        pointer-events: none;
+
+        padding: 0 8px;
+        height: 38px;
+
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        display: flex;
+        justify-content: center;
+
+        opacity: 0;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 60% 75%, 50% 100%, 40% 75%, 0% 75%);
+        background-color: ${colors.black};
+        color: ${colors.white};
+
+        font-size: ${fonts.tablet.md};
+        text-align: center;
+        white-space: nowrap;
+
+        transition: font-size .1s, opacity .4s;
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+
     &::after {
         content: "";
+        user-select: none;
+        pointer-events: none;
 
         height: 60px;
         width: 60px;
@@ -44,7 +93,7 @@ const LinkStyles = css`
         transition: top .4s;
     }
 
-    & .active::after {
+    &.active::after {
         top: 50%;
     }
 
@@ -53,7 +102,7 @@ const LinkStyles = css`
     }
 
     &:active,
-    & .active {
+    &.active {
         color: ${colors.white};
     }
 

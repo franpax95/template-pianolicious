@@ -8,9 +8,31 @@ export const StyledLayout = styled.div`
 
     position: relative;
 
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
+
+    overflow-y: scroll;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background-color: #00587a;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background-color: #008891;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #00a7b3;
+    }
 `;
 
 export const BackgroundImage = styled.div`
@@ -18,7 +40,7 @@ export const BackgroundImage = styled.div`
     width: 100%;
     height: 100%;
 
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 
@@ -34,7 +56,7 @@ export const BackgroundGradient = styled.div`
     width: 100%;
     height: 100%;
 
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 
@@ -49,13 +71,15 @@ export const BackgroundGradient = styled.div`
 export const Content = styled.div`
     width: 100%;
     min-height: 80vh;
-    min-height: calc(90vh - 100px);
-    margin: 100px auto 10vh auto;
+    min-height: calc(90vh - 150px);
+    margin: 150px auto 10vh auto;
+
+    position: relative;
 
     background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%);
     background-blend-mode: screen;
 
-    transition: width .5s, height .5s;
+    transition: width .5s, height .5s ease-out .15s;
 
     @media only screen and (min-width: ${breakpoints.mobile}) {
         width: 450px;
@@ -66,6 +90,6 @@ export const Content = styled.div`
     }
 
     @media only screen and (min-width: ${breakpoints.desktop}) {
-        width: 750px;
+        width: 850px;
     }
 `;

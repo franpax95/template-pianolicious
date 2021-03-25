@@ -1,9 +1,9 @@
 import React from 'react';
-import { BackgroundGradient, BackgroundImage, Content, StyledLayout } from './style';
 
+import { BackgroundGradient, BackgroundImage, Content, StyledLayout } from './style';
 import Navbar from 'components/Navbar';
 
-function Layout({ children }) {
+function Layout({ height, children }) {
     return (
         <StyledLayout>
             <BackgroundImage />
@@ -12,7 +12,7 @@ function Layout({ children }) {
 
             <Navbar />
             
-            <Content>
+            <Content style={{ height }}>
                 {children}
             </Content>
         </StyledLayout>

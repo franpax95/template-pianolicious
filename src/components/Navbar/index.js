@@ -8,19 +8,19 @@ import { AiFillInstagram } from 'react-icons/ai';
 function Navbar() {
     return (
         <StyledNavbar>
-            <NavbarLink to="/">
+            <NavbarLink exact to="/" description="Inicio">
                 <IoHome />
             </NavbarLink>
 
-            <NavbarLink to="/gallery">
+            <NavbarLink to="/gallery" description="Galería">
                 <MdLibraryMusic />
             </NavbarLink>
 
-            <NavbarLink>
+            <NavbarLink to="/contact" description="Contacto">
                 <MdMessage />
             </NavbarLink>
 
-            <NavbarAnchor>
+            <NavbarAnchor href="https://www.instagram.com/franpax95/" target="_blank" description="Instagram">
                 <AiFillInstagram />
             </NavbarAnchor>
         </StyledNavbar>
