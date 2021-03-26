@@ -10,9 +10,11 @@ function Contact() {
             <Title align="center">¡Contáctame!</Title>
 
             <Form>
-                <Input placeholder="Nombre" />
-                <TextArea placeholder="Mensaje" />
-                <Button>Enviar mensaje</Button>
+                <Input name="name" placeholder="Nombre" autoComplete={false} />
+                <Input name="email" type="Email" placeholder="Email" autoComplete={false} />
+                <Input name="subject" placeholder="Asunto" autoComplete={false} />
+                <TextArea name="message" placeholder="Mensaje" />
+                <Button type="submit">Enviar mensaje</Button>
             </Form>
         </StyledContact>
     );
